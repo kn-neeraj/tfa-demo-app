@@ -6,9 +6,10 @@ import path from "path";
 export default defineConfig(() => ({
   server: {
     host: "::",
-    port: 8080,
-    allowedHosts: ["1af177fc0c72.ngrok-free.app"],
+    port: 443,
+    allowedHosts: ["*"],
   },
+  base: "/selfheal-demo-app/",
   plugins: [
     react(),
   ],
