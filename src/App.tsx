@@ -127,7 +127,7 @@ const ShoppingCartPage = () => {
             </>
           ) : (
             <div className="mt-6 px-6 py-3 bg-yellow-100 text-yellow-800 rounded w-full text-center text-lg font-semibold">
-              Please <a href="/profile" className="underline text-blue-600">login</a> to checkout.
+              Please <Link to="/profile" className="underline text-blue-600">login</Link> to checkout.
             </div>
           )}
         </div>
@@ -142,7 +142,7 @@ const App = () => (
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <SelfHealProvider>
-            <BrowserRouter>
+            <BrowserRouter basename="/selfheal-demo-app">
               <AppContent />
             </BrowserRouter>
           </SelfHealProvider>
