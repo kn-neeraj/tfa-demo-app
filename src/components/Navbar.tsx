@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSelfHeal } from '../contexts/SelfHealContext';
 import { useCart } from '../contexts/CartContext';
 import { useUser } from '../contexts/UserContext';
+import { getAssetPath } from '../lib/assetUtils';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -51,7 +52,7 @@ const Navbar: React.FC = () => {
             id={isHealing ? 'main-logo' : 'logo'}
           >
             <div className="flex items-center justify-center">
-              <img src="/favicon.svg" alt="BrowserStack Logo" className="w-12 h-12 object-contain block" style={{margin: 0, padding: 0, minWidth: '3rem', minHeight: '3rem', maxWidth: '3rem', maxHeight: '3rem'}} />
+              <img src={getAssetPath("/favicon.svg")} alt="BrowserStack Logo" className="w-12 h-12 object-contain block" style={{margin: 0, padding: 0, minWidth: '3rem', minHeight: '3rem', maxWidth: '3rem', maxHeight: '3rem'}} />
             </div>
             <span className="tracking-tight">BrowserStack</span>
             {isHealing && (

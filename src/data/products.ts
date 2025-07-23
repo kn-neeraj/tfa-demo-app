@@ -1,4 +1,6 @@
 // Static product data for test/demo use
+import { getAssetPath } from '../lib/assetUtils';
+
 export const products = [
   {
     id: 1,
@@ -7,7 +9,7 @@ export const products = [
     category: 'android',
     os: 'android',
     description: 'Google Pixel 4 with Snapdragon 855, 5.7-inch OLED display, 12MP dual camera, Face Unlock.',
-    image: '/static/products/GooglePixel4.png',
+    image: getAssetPath('/static/products/GooglePixel4.png'),
     rating: { rate: 4.5, count: 120 }
   },
   {
@@ -17,7 +19,7 @@ export const products = [
     category: 'ios',
     os: 'ios',
     description: 'Apple iPhone 11 with A13 Bionic chip, 6.1-inch Liquid Retina HD display, dual 12MP cameras.',
-    image: '/static/products/iPhone11.png',
+    image: getAssetPath('/static/products/iPhone11.png'),
     rating: { rate: 4.7, count: 210 }
   },
   {
@@ -27,7 +29,7 @@ export const products = [
     category: 'ios',
     os: 'ios',
     description: 'Apple iPhone 12 Pro with A14 Bionic chip, 6.1-inch Super Retina XDR display, triple 12MP cameras.',
-    image: '/static/products/iPhone12Pro.png',
+    image: getAssetPath('/static/products/iPhone12Pro.png'),
     rating: { rate: 4.8, count: 180 }
   },
   {
@@ -37,7 +39,7 @@ export const products = [
     category: 'android',
     os: 'android',
     description: 'Samsung Galaxy Note 20 with Snapdragon 865+, 6.7-inch AMOLED, S Pen, triple camera system.',
-    image: '/static/products/Note20.png',
+    image: getAssetPath('/static/products/Note20.png'),
     rating: { rate: 4.6, count: 150 }
   },
   {
@@ -47,7 +49,7 @@ export const products = [
     category: 'android',
     os: 'android',
     description: 'OnePlus 6T with Snapdragon 845, 6.41-inch AMOLED, in-display fingerprint sensor.',
-    image: '/static/products/Oneplus6T.png',
+    image: getAssetPath('/static/products/Oneplus6T.png'),
     rating: { rate: 4.4, count: 100 }
   },
   {
@@ -57,7 +59,7 @@ export const products = [
     category: 'android',
     os: 'android',
     description: 'OnePlus 8 with Snapdragon 865, 6.55-inch Fluid AMOLED, 48MP triple camera.',
-    image: '/static/products/OnePlus8.png',
+    image: getAssetPath('/static/products/OnePlus8.png'),
     rating: { rate: 4.5, count: 110 }
   },
   {
@@ -67,7 +69,7 @@ export const products = [
     category: 'android',
     os: 'android',
     description: 'Samsung Galaxy S9 with Snapdragon 845, 5.8-inch Super AMOLED, 12MP camera.',
-    image: '/static/products/samsung-s9.png',
+    image: getAssetPath('/static/products/samsung-s9.png'),
     rating: { rate: 4.3, count: 90 }
   },
   {
@@ -77,7 +79,7 @@ export const products = [
     category: 'android',
     os: 'android',
     description: 'Samsung Galaxy S10 with Snapdragon 855, 6.1-inch Dynamic AMOLED, triple camera system.',
-    image: '/static/products/samsung-S10.png',
+    image: getAssetPath('/static/products/samsung-S10.png'),
     rating: { rate: 4.6, count: 130 }
   },
   {
@@ -87,7 +89,7 @@ export const products = [
     category: 'android',
     os: 'android',
     description: 'Samsung Galaxy S20+ with Snapdragon 865, 6.7-inch Dynamic AMOLED, quad camera system.',
-    image: '/static/products/samsung-S20+.png',
+    image: getAssetPath('/static/products/samsung-S20+.png'),
     rating: { rate: 4.7, count: 160 }
   },
   {
@@ -97,7 +99,7 @@ export const products = [
     category: 'android',
     os: 'android',
     description: 'Samsung Galaxy S20 Ultra with Snapdragon 865, 6.9-inch Dynamic AMOLED, 108MP camera.',
-    image: '/static/products/samsung-S20Ultra.png',
+    image: getAssetPath('/static/products/samsung-S20Ultra.png'),
     rating: { rate: 4.8, count: 175 }
   }
 ];

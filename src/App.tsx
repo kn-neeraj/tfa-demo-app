@@ -142,7 +142,7 @@ const App = () => (
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <SelfHealProvider>
-            <BrowserRouter basename="/selfheal-demo-app">
+            <BrowserRouter basename="/selfheal-demo-app/">
               <AppContent />
             </BrowserRouter>
           </SelfHealProvider>
