@@ -15,22 +15,19 @@ const Scenarios: React.FC = () => {
   const getElementId = (base: string, scenario: string) => {
     if (isHealing) {
       const idMaps: { [key: string]: { [key: string]: string } } = {
-        form: {
-          'email-input': 'user-email-field',
-          'password-input': 'user-pass-field',
-          'submit-btn': 'form-submit-button'
+        'id-change': {
+          'static-id-field': 'dynamic-id-field',
         },
-        login: {
-          'login-email': 'auth-email-input',
-          'login-password': 'auth-password-input',
-          'login-submit': 'authenticate-button'
+        'button-text': {
+          'Submit': 'Click',
+          'Proceed': 'Continue',
         },
         toggle: {
           'feature-toggle': 'option-switch',
           'toggle-label': 'switch-description'
         },
         progress: {
-          'progress-status-id': 'indicator-status-id',
+          'progress-status-id': 'upload-progress-status-indicator',
         }
       };
       return idMaps[scenario]?.[base] || base;
@@ -116,13 +113,13 @@ const Scenarios: React.FC = () => {
             <div className="space-y-4">
               <input
                 type="text"
-                id={isHealing ? 'dynamic-id-field' : 'static-id-field'}
+                id={getElementId('static-id-field', 'id-change')}
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 transition-all ${isHealing ? 'border-orange-300 focus:ring-orange-500 bg-orange-50' : 'border-gray-300 focus:ring-blue-500'}`}
                 placeholder={isHealing ? 'Dynamic ID Field' : 'Static ID Field'}
               />
               {isHealing && (
                 <HealingInfo
-                  message="ID changed from 'static-id-field' → 'dynamic-id-field'."
+                  message={`ID changed from 'static-id-field' → '${getElementId('static-id-field', 'id-change')}'.`}
                   details="Self-healing automatically adapts to new IDs, so your tests keep working even if the attribute changes."
                 />
               )}
@@ -200,20 +197,20 @@ const Scenarios: React.FC = () => {
             </div>
             <div className="space-y-4">
               <button
-                title={isHealing ? 'Primary Action' : 'Submit'}
+                title={getElementId('Submit', 'button-text')}
                 className={`w-full py-3 px-4 rounded-lg font-medium transition-all ${isHealing ? 'bg-orange-600 hover:bg-orange-700 text-white ring-2 ring-orange-300' : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
                 onClick={() => toast({
                   title: isHealing ? 'Self-Heal Demo' : 'Normal Demo',
                   description: 'Content Description button clicked!',
                   className: toastStyles,
-                  duration: 200 // 0.2 second
+                  duration: 500 // 0.5 second
                 })}
               >
-                {isHealing ? 'Primary Action' : 'Submit'}
+                {getElementId('Submit', 'button-text')}
               </button>
               {isHealing && (
                 <HealingInfo
-                  message="title changed from 'Submit' → 'Primary Action'."
+                  message={`Button title changed from 'Submit' → '${getElementId('Submit', 'button-text')}'.`}
                   details="Self-healing adapts to changes in accessibility attributes, so your tests remain robust."
                 />
               )}
@@ -238,14 +235,14 @@ const Scenarios: React.FC = () => {
                   title: isHealing ? 'Self-Heal Demo' : 'Normal Demo',
                   description: 'Element Text Change button clicked!',
                   className: toastStyles,
-                  duration: 200 // 0.2 second
+                  duration: 500 // 0.5 second
                 })}
               >
-                {isHealing ? 'Proceed' : 'Continue'}
+                {getElementId('Proceed', 'button-text')}
               </button>
               {isHealing && (
                 <HealingInfo
-                  message="Button text changed from 'Continue' → 'Proceed'."
+                  message={`Button text changed from 'Proceed' → '${getElementId('Proceed', 'button-text')}'.`}
                   details="Self-healing matches elements even if their visible text changes, so your tests don't break on UI updates."
                 />
               )}
@@ -365,7 +362,7 @@ const Scenarios: React.FC = () => {
 
             {isHealing && (
               <HealingInfo
-                message="Progress Status ID changed from 'progress-status-id' to 'indicator-status-id'"
+                message={`Progress Status Element Id changed from  'progress-status-id' to '${getElementId('progress-status-id', 'progress')}'`}
                 details="Self-healing adapts to changes in progress bar attributes and structure, so your tests keep tracking status even if UI components change."
               />
             )}

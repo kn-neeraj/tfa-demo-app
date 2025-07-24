@@ -52,13 +52,20 @@ const OrderHistory: React.FC = () => {
         ) : (
           <ul className="space-y-4">
             {orders.map(order => (
-              <li key={order.id} className="border-b pb-4">
+              <li key={order.id} className="border-b pb-4 order-list-item" data-order-id={order.id}>
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="font-semibold">Order #{order.id}</div>
                     <div className="text-gray-500 text-sm">{order.date}</div>
                   </div>
-                  <Button variant="link" className="text-blue-600 underline" onClick={() => setSelectedOrder(order)}>View Invoice</Button>
+                  <Button
+                    variant="link"
+                    className="text-blue-600 underline"
+                    id={`view-invoice-btn-${order.id}`}
+                    onClick={() => setSelectedOrder(order)}
+                  >
+                    View Invoice
+                  </Button>
                 </div>
                 <div className="text-gray-700 mt-2">Total: <span className="font-bold">${order.total}</span></div>
               </li>

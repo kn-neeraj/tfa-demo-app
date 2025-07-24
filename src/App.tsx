@@ -92,7 +92,7 @@ const ShoppingCartPage = () => {
       ) : (
         <div className="w-full max-w-3xl space-y-4 p-3">
           {cart.items.map(item => (
-            <div key={item.id} className="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg shadow p-4 gap-4">
+            <div key={item.id} id='cart-item' className="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg shadow p-4 gap-4">
               <div className="flex items-center gap-4 w-full md:w-2/3">
                 <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded" />
                 <div className="flex-1">

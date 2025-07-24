@@ -7,6 +7,7 @@ import SelfHealBanner from './SelfHealBanner';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { userProfiles } from '@/data/userProfiles';
+import HealingInfo from '../components/HealingInfo';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -34,23 +35,20 @@ const LoginForm: React.FC = () => {
     const success = await login(matchedUser.userId.toString(), email);
     setIsLoading(false);
     if (success) {
-      navigate('/profile');
+      navigate('/products');
     } else {
       alert('Login failed. Please check your credentials.');
     }
   };
 
   const getElementId = (base: string) => {
-    // if (isHealing) {
-    //   // Simulate ID changes
-    //   const idMap: { [key: string]: string } = {
-    //     'email-input': 'user-email-field',
-    //     'password-input': 'user-password-field',
-    //     'login-submit': 'submit-login-button',
-    //     'show-password': 'toggle-password-visibility'
-    //   };
-    //   return idMap[base] || base;
-    // }
+    if (isHealing) {
+      // Simulate ID changes
+      const idMap: { [key: string]: string } = {
+        'user-select': 'user-input-select',
+      };
+      return idMap[base] || base;
+    }
     return base;
   };
 
@@ -76,9 +74,6 @@ const LoginForm: React.FC = () => {
 
           {/* Healing mode: visually change select layout and style, but preserve onChange logic */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            {!isHealing ? (
-              // Normal mode
-              <>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700">Quick Select User</label>
                   <select
@@ -100,6 +95,11 @@ const LoginForm: React.FC = () => {
                       <option key={u.email} value={u.email}>{u.email}</option>
                     ))}
                   </select>
+                              {isHealing && (
+              <HealingInfo
+                message={`Select-User element Id changed from 'user-select' to '${getElementId('user-select')}'`}
+              />
+            )}
                 </div>
                 <div>
                   <Input
@@ -131,78 +131,6 @@ const LoginForm: React.FC = () => {
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </Button>
                 </div>
-              </>
-            ) : (
-              // Healing mode: Restructured layout, extra wrappers, visual changes
-              <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4 flex flex-col gap-4">
-                <div className="flex flex-row gap-2">
-                  <div className="w-1/2">
-                    <div className="bg-orange-100 p-2 rounded shadow">
-                      <span className="text-xs text-orange-700">User Select Wrapper</span>
-                      <select
-                        className="w-full px-3 py-2 rounded-lg mb-2 border-2 border-orange-400 bg-orange-50 font-bold"
-                        id={getElementId('user-select')}
-                        value={selectedUser}
-                        onChange={e => {
-                          setSelectedUser(e.target.value);
-                          const user = userProfiles.find(u => u.email === e.target.value);
-                          if (user) {
-                            setEmail(user.email);
-                            setPassword(user.password);
-                            setUserId(user.userId.toString());
-                          }
-                        }}
-                      >
-                        <option value="">Choose a test user...</option>
-                        {userProfiles.map(u => (
-                          <option key={u.email} value={u.email}>{u.email}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="w-1/2 flex flex-col gap-2">
-                    <div className="bg-orange-100 p-2 rounded shadow">
-                      <span className="text-xs text-orange-700">Email Wrapper</span>
-                      <div className="relative mt-2">
-                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-400 w-5 h-5" />
-                        <input
-                          type="email"
-                          id={getElementId('email-input')}
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          className="w-full pl-10 pr-4 py-3 border-2 border-orange-400 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-orange-50 font-bold"
-                          placeholder="Enter your email"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="bg-orange-100 p-2 rounded shadow">
-                      <span className="text-xs text-orange-700">Password Wrapper</span>
-                      <div className="relative mt-2">
-                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-400 w-5 h-5" />
-                        <input
-                          type={showPassword ? 'text' : 'password'}
-                          id={getElementId('password-input')}
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                          className="w-full pl-10 pr-12 py-3 border-2 border-orange-400 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-orange-50 font-bold"
-                          placeholder="Enter your password"
-                          required
-                        />
-                        <button
-                          type="button"
-                          id={getElementId('show-password')}
-                          onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-orange-400 hover:text-orange-600"
-                        >
-                          {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
             <Button
               type="submit"
               id={getElementId('login-submit')}
