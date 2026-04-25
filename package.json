@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://browserstack.github.io/selfheal-demo-app",
+  "homepage": "https://kn-neeraj.github.io/tfa-demo-app",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

@@ -9,7 +9,7 @@ export default defineConfig(() => ({
   //   port: 443,
   //   allowedHosts: ["*"],
   // },
-  base: '/selfheal-demo-app/',
+  base: '/tfa-demo-app/',
   plugins: [
     react(),
   ],
