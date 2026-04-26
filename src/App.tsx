@@ -59,7 +59,7 @@ const AppContent = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <footer className="w-full text-center py-4 text-gray-500 text-sm border-t bg-white mt-8">
-        © 2025 BrowserStack. All rights reserved.
+        © 2026 BrowserStack. All rights reserved.
       </footer>
     </div>
   );
