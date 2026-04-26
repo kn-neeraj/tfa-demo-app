@@ -1,55 +1,55 @@
 [
   {
-    "timestamp": "2026-04-26T05:36:20.314Z",
+    "timestamp": "2026-04-26T07:44:18.314Z",
     "level": "info",
     "path": "/",
     "statusCode": 200,
     "message": "GET / 200"
   },
   {
-    "timestamp": "2026-04-26T05:36:22.512Z",
+    "timestamp": "2026-04-26T07:44:21.512Z",
     "level": "info",
     "path": "/products",
     "statusCode": 200,
     "message": "GET /products 200"
   },
   {
-    "timestamp": "2026-04-26T05:36:25.773Z",
+    "timestamp": "2026-04-26T07:44:24.773Z",
     "level": "info",
     "path": "/cart",
     "statusCode": 200,
     "message": "GET /cart 200"
   },
   {
-    "timestamp": "2026-04-26T05:36:48.118Z",
+    "timestamp": "2026-04-26T07:44:38.118Z",
     "level": "warn",
     "path": "/login",
     "statusCode": 200,
     "message": "[auth] persisted user payload missing 'name' field; Navbar display falls back to email"
   },
   {
-    "timestamp": "2026-04-26T05:36:55.220Z",
+    "timestamp": "2026-04-26T07:44:42.220Z",
     "level": "info",
     "path": "/products",
     "statusCode": 200,
     "message": "GET /products 200"
   },
   {
-    "timestamp": "2026-04-26T05:37:02.065Z",
+    "timestamp": "2026-04-26T07:44:50.065Z",
     "level": "warn",
     "path": "/checkout",
     "statusCode": 200,
     "message": "[checkout] order total 1098.00 differs from line-item sum 1099.98 by 1.98; cents truncated by Math.floor reducer"
   },
   {
-    "timestamp": "2026-04-26T05:37:04.881Z",
+    "timestamp": "2026-04-26T07:44:52.881Z",
     "level": "info",
     "path": "/checkout",
     "statusCode": 200,
     "message": "GET /checkout 200"
   },
   {
-    "timestamp": "2026-04-26T05:37:09.412Z",
+    "timestamp": "2026-04-26T07:44:57.412Z",
     "level": "info",
     "path": "/orders",
     "statusCode": 200,
