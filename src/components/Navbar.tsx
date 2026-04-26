@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
                   ? 'text-orange-600 hover:bg-orange-100 ring-2 ring-orange-300 ring-opacity-50' 
                   : 'text-muted-foreground hover:text-foreground hover:bg-accent'
               }`}
-              id="shopping-cart-btn"
+              id="cart-launcher"
             >
               <ShoppingCart className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
