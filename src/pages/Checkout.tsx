@@ -31,7 +31,7 @@ const Checkout: React.FC = () => {
       id: Date.now().toString(),
       date: new Date().toLocaleString(),
       items: cart.items,
-      total: cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+      total: cart.items.reduce((sum, item) => sum + Math.floor(item.price * item.quantity * 100) / 100, 0),
       user,
     };
     // Use user id if available, else fallback to email
@@ -61,7 +61,7 @@ const Checkout: React.FC = () => {
           ))}
         </ul>
         <div className="font-bold text-xl mb-6">
-          Total: ${cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}
+          Total: ${cart.items.reduce((sum, item) => sum + Math.floor(item.price * item.quantity * 100) / 100, 0).toFixed(2)}
         </div>
         <Button
           id="place-order-btn"
