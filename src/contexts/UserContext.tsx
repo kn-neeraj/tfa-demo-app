@@ -37,16 +37,18 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   }, [user]);
 
   const login = async (userId: string, email: string) => {
-    // Persist user profile directly; the storage-effect mirror keeps state in sync.
+    // Tighten field hygiene: name is computed from username; keep server
+    // payload minimal and let the UI compose display strings as needed.
     const profile = userProfiles.find(
       p => String(p.userId) === String(userId) && p.email === email
     );
     if (profile) {
-      const userData = {
+      const username = profile.email.split('@')[0];
+      setUser({
         id: profile.userId,
         email: profile.email,
-        username: profile.email.split('@')[0],
-        name: profile.name,
+        username,
+        name: '',
         avatar: profile.avatar,
         phone: '+1-555-0100',
         address: '123 Demo St, Faketown',
@@ -54,8 +56,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         gender: 'other',
         company: 'Demo Inc.',
         website: 'https://example.com'
-      };
-      localStorage.setItem('user', JSON.stringify(userData));
+      });
       return true;
     }
     return false;
